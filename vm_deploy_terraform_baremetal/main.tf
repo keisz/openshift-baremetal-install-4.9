@@ -26,8 +26,8 @@ data "vsphere_compute_cluster" "cluster" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-data "vsphere_network" "network_1" {
-  name          = var.vsphere_network_1
+data "vsphere_network" "network" {
+  name          = var.vsphere_network
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
@@ -36,27 +36,21 @@ data "vsphere_resource_pool" "pool" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-data "vsphere_virtual_machine" "template" {
-  name          = var.vsphere_template_name
-  datacenter_id = data.vsphere_datacenter.dc.id
-}
-
 #Resource
 resource "vsphere_virtual_machine" "vm" {
   count            = var.prov_vm_num
-   name            = "${var.prov_vmname_prefix}${format("%03d",count.index)}"
+   name            = "${var.prov_vmname_prefix}${format("%02d",count.index)}"
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
 
 #Resource for VM Specs
   num_cpus = var.prov_cpu_num
   memory   = var.prov_mem_num
-  guest_id = data.vsphere_virtual_machine.template.guest_id
-
-  scsi_type = data.vsphere_virtual_machine.template.scsi_type
+  guest_id = var.prov_guest_id
+  #scsi_type = "pvscsi"
 
   network_interface {
-    network_id   = data.vsphere_network.network_1.id
+    network_id   = data.vsphere_network.network.id
     adapter_type = "vmxnet3"
   }
 
@@ -66,17 +60,13 @@ resource "vsphere_virtual_machine" "vm" {
 
 #Resource for Disks
   disk {
-    label            = "disk1"
-    size             = data.vsphere_virtual_machine.template.disks.0.size
-    eagerly_scrub    = data.vsphere_virtual_machine.template.disks.0.eagerly_scrub
-    thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
+    label            = "disk0"
+    size             = 120
   }
 
   disk {
-    label            = "disk0"
+    label            = "disk1"
     size             = 100
-    eagerly_scrub    = data.vsphere_virtual_machine.template.disks.0.eagerly_scrub
-    thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
     unit_number      = 1
   }
 
@@ -85,7 +75,4 @@ resource "vsphere_virtual_machine" "vm" {
     path         = "iso/rhcos-4.9.0-x86_64-live.x86_64.iso"
   }
 
-  clone {
-    template_uuid = data.vsphere_virtual_machine.template.id
-  }
 }

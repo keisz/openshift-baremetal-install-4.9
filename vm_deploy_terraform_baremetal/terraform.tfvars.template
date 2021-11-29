@@ -1,0 +1,21 @@
+#Define Variables for Platform
+vsphere_user            = "administrator@vsphere.local"      #vsphereのユーザー名
+vsphere_password        = "yourpassword"                     #vsphereのパスワード
+vsphere_vc_server       = "vcenter.vsphere.local"            #vCenterのFQDN/IPアドレス
+vsphere_datacenter      = "dc"                               #vsphereのデータセンター
+vsphere_datastore       = "storage"                          #vsphereのデータストア
+vsphere_cluster         = "cluster"                          #vsphereのクラスター
+vsphere_network         = "VM Network"                       #vsphereのネットワーク
+vsphere_resource_pool   = "resource_pool"                    #ResourcePool名
+
+#Define Variables for Virtual Machines
+prov_guest_id           = "rhel8_64Guest"                    #プロビジョニングする仮想マシンのGuestID
+prov_vm_num             = 7                                  #プロビジョニングする仮想マシンの数
+prov_vmname_prefix      = "rhcos-"                           #プロビジョニングする仮想マシンの接頭語
+prov_cpu_num            = 8                                  #プロビジョニングする仮想マシンのCPUの数
+prov_mem_num            = 16384                              #プロビジョニングする仮想マシンのメモリのMB
+
+vsphere_iso             = "storage"                          #vsphereのisoデータストア
+  
+
+
