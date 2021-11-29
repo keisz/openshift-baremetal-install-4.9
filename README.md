@@ -43,6 +43,7 @@ github上のファイルをダウンロードします。
    cd install-oc-tools
    ./install-oc-tools.sh --version 4.9.6
    ```
+   > wgetをインストールしていないと失敗します。  
 4. [OpenShiftを構成するために必要な環境を稼働させる](docker/README.md)
 5. [OpenShiftをインストールする](openshift/README.md)
 
