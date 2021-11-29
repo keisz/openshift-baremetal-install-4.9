@@ -19,14 +19,14 @@ OpenShiftのインストール時に必須になります。ダウンロード�
 PullSecretのファイルをダウンロードして保存しておきます。  
 
 ## インストール前準備 手順
-*install-config.yaml*をファイルを作成後に*openshift-install*を実行し、マニフェストを生成・編集後、ignition-configを生成します。
+*install-config.yaml*ファイルを作成後に*openshift-install*を実行し、マニフェストを生成・編集後、ignition-configを生成します。
 ignition-configは OpenShiftのノードをRHCOSのISOイメージからブートし、指定することでOpenShiftノードのインストールが完了します。  
 
 ### install-config.yaml 
 1. `cd openshift`
 2. `./generate-sshkey.sh` スクリプトを実行します。 *sshkey*dirにファイルが作成されます。 
 3. `./install-config.sh` スクリプトを実行します。
-4. *install-config.yaml* の **sshkey** と **pullsecret** を追加します。  
+4. *install-config.yaml* の **sshkey** と **pullsecret** 部分に値を追加します。  
    
 ### openshift-install
 1. `./openshift-install.sh` スクリプトを実行します。
