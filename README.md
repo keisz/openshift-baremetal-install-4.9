@@ -37,7 +37,7 @@ github上のファイルをダウンロードします。
 
 1. 作業用PCにDocker/Docker-compose/git/wgetがインストールされていることを確認
 2. githubからダウンロード
-   - `git clone https://github.com/cptmorgan-rh/install-oc-tools.git
+   - `git clone https://github.com/cptmorgan-rh/install-oc-tools.git`
 3. **oc/kubectl/openshift-install** を実行して、oc/kubectl/openshift-installをインストール   
    ```
    cd install-oc-tools
