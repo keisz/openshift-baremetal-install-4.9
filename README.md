@@ -1,7 +1,7 @@
 # OpenShift インストール 
-date: 2021/11/25  
+2021/11/25  
 
-IBM Powerの検証用にOpenShiftを構成する手順を整理  
+検証用のOpenShiftを構成する手順を整理  
 - RHCOS 6台でベアメタルOpenShiftを構成
   - IPアドレスはスタティック
 - OpenShift version: 4.9.6
@@ -9,11 +9,9 @@ IBM Powerの検証用にOpenShiftを構成する手順を整理
 ## 利用するファイル
 github上のファイルをダウンロードします。  
 
-
-
 ## 作業PC  
 - AlmaLinux 8.5  
-  - docker/docker-compose/git
+  - docker/docker-compose/git/wget
 
 ## OpenShiftを構成するために必要な環境  
 すべて作業PC上にDockerで稼働させる  
