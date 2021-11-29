@@ -48,7 +48,7 @@ github上のファイルをダウンロードします。
 
 
 #### package  
-https://mirror.openshift.com/
-https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.9/
-https://console.redhat.com/openshift/install/metal/user-provisioned
+https://mirror.openshift.com/  
+https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.9/  
+https://console.redhat.com/openshift/install/metal/user-provisioned  
 
