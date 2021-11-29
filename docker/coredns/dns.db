@@ -1,0 +1,13 @@
+$ORIGIN .
+$TTL 120;
+#CLUSTER_NAME_DOMAIN_NAME         IN SOA  ns1.#CLUSTER_NAME_DOMAIN_NAME. hostmaster.#CLUSTER_NAME_DOMAIN_NAME. (
+                                2011112904 ; serial
+                                60         ; refresh (1 minute)
+                                15         ; retry (15 seconds)
+                                1800       ; expire (30 minutes)
+                                10         ; minimum (10 seconds)
+                                )
+                        NS      ns1.#CLUSTER_NAME_DOMAIN_NAME.
+$ORIGIN #CLUSTER_NAME_DOMAIN_NAME.
+ns1                     A       #DOCKER_HOST_IP
+*.apps                  A       #DOCKER_HOST_IP

@@ -1,0 +1,10 @@
+.:53 {
+    hosts /etc/coredns/hosts {
+        fallthrough
+    }
+    file /etc/coredns/dns.db #CLUSTER_NAME_DOMAIN_NAME
+    forward . #EXTERNAL_DNS
+    log
+    errors
+    reload
+}

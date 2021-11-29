@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  lb:
+    image: haproxy:2.4
+    ports:
+      - 1936:1936
+      - 80:18080
+      - 443:18443
+      - 6443:6443
+      - 22623:22623
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+
+  dns:
+    image: coredns/coredns:1.8.6 
+    ports:
+      - 53:53
+      - 53:53/udp
+    volumes:
+      - ./coredns:/etc/coredns:ro
+    command: -conf /etc/coredns/corefile
+
+  web:
+    image: nginx:1.13
+    ports:
+      - 8008:80
+    volumes:
+      - ./nginx:/usr/share/nginx/html
+
